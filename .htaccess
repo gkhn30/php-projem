@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Dosya veya klasör değilse yönlendir
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Örnek: site.com/kafeadi -> menu.php?store=kafeadi
+RewriteRule ^([a-zA-Z0-9-_]+)$ menu.php?store=$1 [L,QSA]
